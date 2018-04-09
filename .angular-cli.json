@@ -19,9 +19,22 @@
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "app",
       "styles": [
-        "styles.css"
+        "styles.css",
+        "../node_modules/bootstrap/dist/css/bootstrap.css",
+        "./assets/css/sb-admin.min.css",
+        "./assets/css/fontawesome.css",
+        "./assets/css/fa-solid.css",
+        "../node_modules/primeng/resources/themes/omega/theme.css",
+        "../node_modules/primeng/resources/primeng.min.css"
+
       ],
-      "scripts": [],
+      "scripts": [
+        "./assets/js/sb-admin.min.js",
+        "./assets/js/sb-admin-charts.min.js",
+        "./assets/js/sb-admin-datatables.min.js",
+        "../node_modules/jquery/dist/jquery.min.js"
+
+      ],
       "environmentSource": "environments/environment.ts",
       "environments": {
         "dev": "environments/environment.ts",

@@ -7,13 +7,14 @@ import {Routes,RouterModule} from "@angular/router";
 
 import {AppComponent} from './app.component';
 import { UtilisateurManagerComponent } from './utilisateurs/utilisateur-manager/utilisateur-manager.component';
-import {HttpClientModule} from "@angular/common/http";
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
-import {AuthentificationModule} from "./security/authentification.module";
 import {AppRoutingModule} from "./app-routing.module";
 import {UtilisateurManagerModule} from "./utilisateurs/utilisateur-manager/utilisateur-manager.module";
 import {MenuTopModule} from "./accueil/menu-top/menu-top.module";
+import {Interceptor} from "./app.interceptor";
+import {LoginModule} from "./security/login/login.module";
 
 const routes : Routes = [
   {
@@ -32,16 +33,22 @@ const routes : Routes = [
     HttpClientModule,
     MenuTopModule,
     BrowserAnimationsModule,
-    AuthentificationModule,
     UtilisateurManagerModule,
-    AppRoutingModule
+    AppRoutingModule,
+    LoginModule
     ]
 ,
     declarations: [
-    AppComponent
+    AppComponent,
+
+
   ],
   exports : [],
-  providers: [],
+  providers: [
+    {
+      provide : HTTP_INTERCEPTORS, useClass : Interceptor, multi :true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {

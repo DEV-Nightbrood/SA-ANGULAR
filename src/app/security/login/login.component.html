@@ -1,0 +1,17 @@
+  <h2>Login</h2>
+  <form name="form" >
+
+    <span class="ui-float-label">
+      <input id="float-input-username" type="text" size="30" pInputText (keyup)="onKeyUsername($event)" >
+      <label for="float-input-username">Login</label>
+    </span>
+
+    <span class="ui-float-label">
+      <input id="float-input-password" type="text" size="30" pInputText (keyup)="onKeyPassword($event)" >
+      <label for="float-input-password">Login</label>
+    </span>
+
+
+    <p-button label="Connexion" (onClick)="login()"></p-button>
+  </form>
+

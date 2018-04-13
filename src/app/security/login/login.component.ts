@@ -17,11 +17,14 @@ export class LoginComponent {
   password: string;
 
   login(): void {
-    this.authService.attemptAuth(this.username, this.password).subscribe(
+    this.authService.attemptAuth(this.username, this.password)
+      .subscribe(
       data => {
         this.token.saveToken(data.token);
         this.router.navigate(['accueil']);
-      }
+      },
+        error => console.log(error),
+
     );
   }
 
